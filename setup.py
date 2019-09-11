@@ -18,7 +18,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=2.7.0',
+    python_requires='>=3.0.0',
     install_requires=[
         'imageio',
         'matplotlib',
