@@ -12,8 +12,8 @@ While both methods will produce the fractal after infinite iterations, the metho
 
 ## Using this IFS Generator
 
-Import the generator library `IFSFGL.py`
-> `from IFSFGL import *`
+Import the generator library `ifsFractals`
+> `from ifsFractals import *`
 
 Define some contraction transformations as $3\times 3$ matrices (as numpy arrays) or compose some of the built-in transformations using numpy array multiplication `@`. The following are built-in transformations:
 * `Scale(s)` : $(x,y)\to(sx,sy)$
