@@ -19,6 +19,16 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=2.7.0',
-    install_requires=['imageio', 'matplotlib', 'numba', 'numpy', 'Pillow', 'scipy', 'system', 'termcolor', 'typing'],
+    install_requires=[
+        'imageio',
+        'matplotlib',
+        'numba',
+        'numpy',
+        'Pillow',
+        'scipy',
+        'system',
+        'termcolor',
+        'typing'
+    ],
     keywords='Fractal Generator'
 )
