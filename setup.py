@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="ifsFractals",
-    version="0.0.2",
+    version="0.0.3",
     author="Peter Francis",
     author_email="franpe02@gettysburg.edu",
     description="For Generating Fast IFS Fractals",
@@ -18,7 +18,7 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    # python_requires='>=3.7.3',
+    python_requires='>=2.7.0',
     install_requires=['imageio', 'matplotlib', 'numba', 'numpy', 'Pillow', 'scipy', 'system', 'termcolor', 'typing'],
-    keywords='sample setuptools development'
+    keywords='Fractal Generator'
 )
