@@ -19,17 +19,6 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     # python_requires='>=3.7.3',
-    install_requires=[
-        'imageio>=2.5.0',
-        'matplotlib>=3.1.1',
-        'numba>=0.45.1',
-        'numpy>=1.17.0',
-        'Pillow>=6.1.0',
-        'scipy>=1.3.1',
-        'system>=0.1.16',
-        'termcolor>=1.1.0',
-        'typing>=3.7.4'],
-
-        # 'imageio', 'matplotlib', 'numba', 'numpy', 'Pillow', 'scipy', 'system', 'termcolor', 'typing'],
+    install_requires=['imageio', 'matplotlib', 'numba', 'numpy', 'Pillow', 'scipy', 'system', 'termcolor', 'typing'],
     keywords='sample setuptools development'
 )
