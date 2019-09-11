@@ -1,3 +1,3 @@
 name = "IFSFGL"
 
-from .IFSFGL import *
+from .ifsFractals import *
