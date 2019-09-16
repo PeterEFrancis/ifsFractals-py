@@ -20,7 +20,7 @@ setup(
     install_requires=[
         'imageio',
         'matplotlib',
-        'numba',
+        'numba==0.45.1',
         'numpy',
         'Pillow',
         'scipy',
