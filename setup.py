@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="ifsFractals",
-    version="0.0.8",
+    version="0.0.9",
     author="Peter Francis",
     author_email="franpe02@gettysburg.edu",
     description="For Generating Fast IFS Fractals",
@@ -16,7 +16,7 @@ setup(
     url="https://github.com/francisp336/IFSFGl",
     py_modules=["ifsFractals"],
     classifiers=[],
-    # python_requires='>=3.0.0',
+    python_requires='>=3.0.0',
     install_requires=[
         'imageio',
         'matplotlib',
