@@ -27,14 +27,19 @@ from PIL import Image                                   # for faster images
 import math                                             # for math
 from scipy.stats import linregress                      # for linear regressions
 
+# this should only be temporary
+from numba.errors import NumbaDeprecationWarning, NumbaPendingDeprecationWarning
+import warnings
 
+warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
+warnings.simplefilter('ignore', category=NumbaPendingDeprecationWarning)
 
 
 ## Math Ops
 @njit
 def opNorm(A):
     G = A[:2].T[:2].T
-    return np.sqrt(np.max(np.linalg.eig(G @ G.T)[0]))
+    return np.sqrt(np.max(np.linalg.eig(np.dot(G, G.T))[0]))
 
 def check_transformations(transformations, mode=''):
     if transformations is None:
