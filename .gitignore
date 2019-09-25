@@ -8,3 +8,5 @@ build
 build_instructions.txt
 
 click_to_build
+
+test.py
