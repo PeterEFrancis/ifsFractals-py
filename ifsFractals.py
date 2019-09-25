@@ -27,23 +27,24 @@ from PIL import Image                                   # for faster images
 import math                                             # for math
 from scipy.stats import linregress                      # for linear regressions
 
-# this should only be temporary
-from numba.errors import NumbaDeprecationWarning, NumbaPendingDeprecationWarning
-import warnings
 
+# this should only be temporary
+from numba.errors import NumbaDeprecationWarning, NumbaPendingDeprecationWarning, NumbaPerformanceWarning
+import warnings
 warnings.simplefilter('ignore', category=NumbaDeprecationWarning)
 warnings.simplefilter('ignore', category=NumbaPendingDeprecationWarning)
+warnings.simplefilter('ignore', category=NumbaPerformanceWarning)
 
 
 ## Math Ops
 @njit
 def opNorm(A):
     G = A[:2].T[:2].T
-    return np.sqrt(np.max(np.linalg.eig(np.dot(G, G.T))[0]))
+    return np.sqrt(np.max(np.linalg.eig(G @ G.T)[0]))
 
 def check_transformations(transformations, mode=''):
     if transformations is None:
-        raise ValueError('IFSFGL: transformations cannot be NoneType.')
+        raise ValueError('ifsFractals: transformations cannot be NoneType.')
     failed = []
     for i in np.arange(len(transformations)):
         if opNorm(transformations[i]) >= 1:
@@ -153,25 +154,25 @@ def generate_figures(n, figures, transformations):                       # takes
 class Fractal(object):
     def __init__(self, transformations, weights=np.array([0.]), size=10, color=(0,0,255)):
         if transformations is None:
-            raise ValueError('IFSFGL: transformations cannot be NoneType.')
+            raise ValueError('ifsFractals: transformations cannot be NoneType.')
         self.transformations = transformations
         self.color = color
         if all(weights == np.array([0.])):
             self.weights = make_eq_weights(len(transformations))
         else:
             if len(weights) != len(transformations):
-                raise ValueError('IFSFGL: Weights do not match the transformations.')
+                raise ValueError('ifsFractals: Weights do not match the transformations.')
             if sum(weights) - 1 > .00001:
-                raise ValueError('IFSFGL: Weights do not sum to 1.')
+                raise ValueError('ifsFractals: Weights do not sum to 1.')
             self.weights = weights
 
         if size==0:
-            raise ValueError('IFSFGL: size cannot be 0.')
+            raise ValueError('ifsFractals: size cannot be 0.')
         self.size = size
         self.xmin, self.xmax, self.ymin, self.ymax = find_bounds(self.transformations,self.weights)
         self.bounds = (self.xmin, self.xmax, self.ymin, self.ymax)
         if self.xmax-self.xmin==0 or self.ymax-self.ymin==0 or not check_transformations(self.transformations, mode="quiet"):
-            raise ValueError('IFSFGL: Fractal converges to insignificance or absurdity.')
+            raise ValueError('ifsFractals: Fractal converges to insignificance or absurdity.')
         self.width = math.ceil((self.xmax-self.xmin)*36*self.size)
         self.height = math.ceil((self.ymax-self.ymin)*36*self.size)
         self.isZoomed = False
@@ -227,6 +228,8 @@ class Fractal(object):
             self.pixels[self._scale(self.point)] = self.color
 
     def make_gif(self, name='GIF', n=100_000, zoom=2, frames=7, zoomPoint=None):
+        if not os.path.exists('Saved Fractals/For Zooms'):
+            os.makedirs('Saved Fractals/For Zooms')
         start = time.time()
         print(f'Generating {frames} Zoomed images: ', end='')
         if zoomPoint is None:
@@ -265,7 +268,7 @@ class Fractal(object):
                     self.pixels[self._scale(row)] = self.color
             self.developement += n
 
-    def save_pic(self, path='Saved%20Fractals/Trash.png'):
+    def save_pic(self, path):
         self.pic.save(path)
 
     def display_pic(self):
@@ -362,7 +365,7 @@ def _generate_points_zoom(n, transformations, weights=np.array([0.]), startingPo
     if all(weights == np.array([0.])):
         return generate_points_zoom_simple(n, transformations, startingPoint, frame)
     if all(frame == np.array([0.])): # this is to keep the order of function inputs consistant
-        raise ValueError('IFSFGL: _generate_points_zoom was not given a zoom frame.')
+        raise ValueError('ifsFractals: _generate_points_zoom was not given a zoom frame.')
     output = np.array([[startingPoint[0],startingPoint[1],1]]*n, dtype=np.float64)
     for _ in range(20):
         potentialPoint = transformations[choose_random_index(weights)] @ outputFigures[i-1]
