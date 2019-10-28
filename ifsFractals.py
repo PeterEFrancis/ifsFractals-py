@@ -171,7 +171,7 @@ class Fractal(object):
         self.size = size
         self.xmin, self.xmax, self.ymin, self.ymax = find_bounds(self.transformations,self.weights)
         self.bounds = (self.xmin, self.xmax, self.ymin, self.ymax)
-        if self.xmax-self.xmin==0 or self.ymax-self.ymin==0 or not check_transformations(self.transformations, mode="quiet"):
+        if (self.xmax-self.xmin==0 and self.ymax-self.ymin==0) or not check_transformations(self.transformations, mode="quiet"):
             raise ValueError('ifsFractals: Fractal converges to insignificance or absurdity.')
         self.width = math.ceil((self.xmax-self.xmin)*36*self.size)
         self.height = math.ceil((self.ymax-self.ymin)*36*self.size)
