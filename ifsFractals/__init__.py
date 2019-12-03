@@ -39,10 +39,10 @@ warnings.simplefilter('ignore', category=NumbaPerformanceWarning)
 
 
 # import supporting files
-from ifsFractals.figures import *
-from ifsFractals.generatingPoints import *
-from ifsFractals.wordFractals import *
-from ifsFractals.basic import *
+from .figures import *
+from .generatingPoints import *
+from .wordFractals import *
+from .basic import *
 
 
 

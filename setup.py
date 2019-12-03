@@ -7,14 +7,14 @@ with open("README.md", "r") as fh:
 
 setup(
     name="ifsFractals",
-    version="0.1.0",
+    packages=["ifsFractals"],
+    version="0.1.4",
     author="Peter Francis",
     author_email="franpe02@gettysburg.edu",
     description="For Generating Fast IFS Fractals",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/francisp336/IFSFGl",
-    packages=["ifsFractals"],
+    url="https://github.com/francisp336/ifsFractals",
     classifiers=[],
     python_requires='>=3.0.0',
     install_requires=[
@@ -24,7 +24,7 @@ setup(
         'numpy',
         'Pillow',
         'scipy',
-        'system',
+        # 'system',
         'termcolor',
         'typing'
     ],

@@ -12,7 +12,7 @@ from scipy.stats import linregress                      # for linear regressions
 
 
 # internal dependencies
-from ifsFractals.basic import *
+# from .basic import *
 
 
 
