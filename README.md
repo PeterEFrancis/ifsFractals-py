@@ -1,4 +1,4 @@
-# ifsFractal
+# ifsFractals
 
 A python module for fast Iterated Function System Fractal generation
 
