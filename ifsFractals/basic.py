@@ -4,7 +4,6 @@ from numpy import *                                     # for ease of math funct
 from numpy.linalg import *                              # for ease of linalg function use
 from numba import njit                                  # for compiling functions into C, so they run faster.     MORE INFORMATION: http://numba.pydata.org/
 import random as rd                                     # for random numbers
-from termcolor import colored                           # for colored print statements
 import os                                               # for deep file manipulation
 from typing import List                                 # for specification of types
 import math                                             # for math
@@ -62,7 +61,7 @@ def opNorm(A):
     G = A[:2].T[:2].T
     return np.sqrt(np.max(np.linalg.eig(G @ G.T)[0]))
 
-def check_transformations(transformations, mode=''):
+def check_transformations(transformations, verbose=False):
     if transformations is None:
         raise ValueError('ifsFractals: transformations cannot be NoneType.')
     failed = []
@@ -70,26 +69,23 @@ def check_transformations(transformations, mode=''):
         if opNorm(transformations[i]) >= 1:
             failed = failed + [i+1]
     if len(failed) == 0:
-        if mode == 'pretty':
-            print(colored('The opNorm of every transformation is less than 1 so all of the transformations are contraction mappings.','green'))
-        elif mode == 'quiet':
+        if verbose:
+            print('The opNorm of every transformation is less than 1 so all of the transformations are contraction mappings.')
+        else:
             return True
-        else:
-            return 'The opNorm of every transformation is less than 1 so all of the transformations are contraction mappings.'
     elif len(failed) == 1:
-        if mode == 'pretty':
-            print(colored(f'The opNorm of transformation {failed[0]} is greater than or equal to 1 so is not a contraction mapping.','red'))
-        elif mode == 'quiet':
-            return False
+        if verbose:
+            print(f'The opNorm of transformation {failed[0]} is greater than or equal to 1 so is not a contraction mapping.')
         else:
-            return f'The opNorm of transformation {failed[0]} is greater than or equal to 1 so is not a contraction mapping.'
+            return False
     elif len(failed) > 1:
-        if mode == 'pretty':
-            print(colored(f'The opNorm of transformations {failed} are greater than or equal to 1 so are not contraction mappings.','red'))
-        elif mode == 'quiet':
-            return False
+        if verbose:
+            print(f'The opNorm of transformations {failed} are greater than or equal to 1 so are not contraction mappings.')
         else:
-            return f'The opNorm of transformations {failed} are greater than or equal to 1 so are not contraction mappings.'
+            return False
+
+
+
 
 @njit
 def choose_random_index(weights):

@@ -61,7 +61,8 @@ class Fractal(object):
             if len(weights) != len(transformations):
                 raise ValueError('ifsFractals: Weights do not match the transformations.')
             if sum(weights) - 1 > .00001:
-                raise ValueError('ifsFractals: Weights do not sum to 1.')
+                weights = weights / sum(weights)
+                # raise ValueError('ifsFractals: Weights do not sum to 1.')
             self.weights = weights
 
         if size==0:
