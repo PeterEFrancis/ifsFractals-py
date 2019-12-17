@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 setup(
     name="ifsFractals",
     packages=["ifsFractals"],
-    version="0.1.4",
+    version="0.1.5",
     author="Peter Francis",
     author_email="franpe02@gettysburg.edu",
     description="For Generating Fast IFS Fractals",

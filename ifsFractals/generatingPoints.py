@@ -10,7 +10,7 @@ import random as rd                                     # for random numbers
 
 
 # internal dependencies
-# from .basic import *
+from .basic import *
 
 
 
