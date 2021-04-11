@@ -1,6 +1,8 @@
 **/.DS_Store
 **/__pycache__
 
+**/.ipynb_checkpoints
+
 dist
 ifsFractals.egg-info
 build
@@ -10,3 +12,5 @@ build_instructions.txt
 click_to_build
 
 test.*
+
+setup.cfg
