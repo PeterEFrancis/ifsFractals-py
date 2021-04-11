@@ -8,7 +8,7 @@ with open("README.md", "r") as fh:
 setup(
     name="ifsFractals",
     packages=["ifsFractals"],
-    version="1.0.1",
+    version="1.0.2",
     author="Peter Francis",
     author_email="franpe02@gettysburg.edu",
     description="For Generating Fast IFS Fractals",
@@ -21,7 +21,8 @@ setup(
         'imageio',
         'matplotlib',
         'numpy',
-        'Pillow'
+        'Pillow',
+        'IPython'
     ],
     keywords='Fractal Generator'
 )
