@@ -259,11 +259,14 @@ class Fractal(object):
 
     def export(self):
         for T in self.transformations:
-            print(T.tolist())
+            return {
+                'transformations': T.tolist(),
+                'weights': T.weights
+            }
 
     def link(self):
         matrices = [(np.round(T * 1000) / 1000).tolist() for T in self.transformations]
-        link = 'https://ifs-fractals.herokuapp.com/playground/t='
+        link = 'https://ifs-fractals.peterefrancis.com/playground/t='
         for m in matrices:
             link += f'M({m[0][0]},{m[0][1]},{m[1][0]},{m[1][1]},{m[0][2]},{m[1][2]})&'
         return link[:-1] + "/w=" + ",".join([str(el) for el in self.weights])

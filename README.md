@@ -12,6 +12,4 @@ If you are trying to use `ifsFractals` in CoCalc or get an error about a read-on
 
 > `python3 -m pip install --user ifsFractals --upgrade`
 
-See the [usage docs](https://ifs-fractals.herokuapp.com/python) for included functions and classes.
-
-See example.ipynb for example usage.
+See the [usage docs](https://ifs-fractals.peterefrancis.com/python) for example usage as well as included functions and classes.

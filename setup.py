@@ -4,10 +4,10 @@ from os import path
 setup(
     name="ifsFractals",
     packages=["ifsFractals"],
-    version="1.0.3",
+    version="1.0.4",
     author="Peter Francis",
-    author_email="franpe02@gettysburg.edu",
-    description="For Generating Fast IFS Fractals",
+    author_email="peter.e.francis@stonybrook.edu",
+    description="For Fast Generation of IFS Fractals",
     long_description="""
     # ifsFractals
 
