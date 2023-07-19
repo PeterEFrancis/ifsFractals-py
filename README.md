@@ -2,7 +2,7 @@
 
 A python module for fast Iterated Function System Fractal generation
 
-Also, you can use some `ifsFractals` functionality in your browser [here](https://ifs-fractals.herokuapp.com/)!
+Also, you can use some `ifsFractals` functionality in your browser [here](https://ifs-fractals.peterefrancis.com/)!
 
 To install, use pip:
 
