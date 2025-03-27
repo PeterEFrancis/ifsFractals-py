@@ -2,7 +2,7 @@
 
 A python module for fast Iterated Function System Fractal generation
 
-Also, you can use some `ifsFractals` functionality in your browser [here](https://ifs-fractals.peterefrancis.com/)!
+Also, you can use some `ifsFractals` functionality in your browser [here](https://ifs-fractals.pef.app/)!
 
 To install, use pip:
 
@@ -12,4 +12,4 @@ If you are trying to use `ifsFractals` in CoCalc or get an error about a read-on
 
 > `python3 -m pip install --user ifsFractals --upgrade`
 
-See the [usage docs](https://ifs-fractals.peterefrancis.com/python) for example usage as well as included functions and classes.
+See the [usage docs](https://ifs-fractals.pef.app/python) for example usage as well as included functions and classes.
